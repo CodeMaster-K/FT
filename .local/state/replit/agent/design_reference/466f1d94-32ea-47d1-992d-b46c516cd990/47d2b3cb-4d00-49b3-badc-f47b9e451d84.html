@@ -1,0 +1,1039 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FT Solutions - Transforming Ideas Into Digital Excellence</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                fontFamily: {
+                    'inter': ['Inter', 'sans-serif'],
+                },
+                colors: {
+                    'primary': '#2563EB',
+                    'primary-dark': '#1E40AF',
+                    'accent': '#F59E0B',
+                    'text-primary': '#1F2937',
+                    'text-secondary': '#6B7280',
+                    'bg-primary': '#FAFBFC',
+                },
+                animation: {
+                    'fade-in': 'fadeIn 0.8s ease-in-out',
+                    'slide-up': 'slideUp 0.6s ease-out',
+                    'slide-down': 'slideDown 0.6s ease-out',
+                    'bounce-gentle': 'bounceGentle 2s infinite',
+                },
+                keyframes: {
+                    fadeIn: {
+                        '0%': { opacity: '0' },
+                        '100%': { opacity: '1' },
+                    },
+                    slideUp: {
+                        '0%': { transform: 'translateY(20px)', opacity: '0' },
+                        '100%': { transform: 'translateY(0)', opacity: '1' },
+                    },
+                    slideDown: {
+                        '0%': { transform: 'translateY(-20px)', opacity: '0' },
+                        '100%': { transform: 'translateY(0)', opacity: '1' },
+                    },
+                    bounceGentle: {
+                        '0%, 100%': { transform: 'translateY(0)' },
+                        '50%': { transform: 'translateY(-10px)' },
+                    },
+                }
+            }
+        }
+    };
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .menu-overlay {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        .menu-overlay.active {
+            transform: translateX(0);
+        }
+        .hamburger-line {
+            transition: all 0.3s ease;
+        }
+        .hamburger.active .line1 {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger.active .line2 {
+            opacity: 0;
+        }
+        .hamburger.active .line3 {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .project-card {
+            transition: all 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+    </style>
+</head>
+<body class="font-inter bg-bg-primary text-text-primary">
+
+    <!-- @COMPONENT: AdvancedNavigation -->
+    <!-- Advanced Desktop Menu System -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-gradient-to-r from-primary to-primary-dark rounded-lg flex items-center justify-center">
+                        <i class="fas fa-code text-white text-lg"></i>
+                    </div>
+                    <span class="text-xl font-bold text-text-primary">FT Solutions</span>
+                </div>
+
+                <!-- Desktop Navigation (Hidden on Mobile) -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="#home" class="text-text-secondary hover:text-primary transition-colors duration-200">Home</a>
+                    <a href="#services" class="text-text-secondary hover:text-primary transition-colors duration-200">Services</a>
+                    <a href="#portfolio" class="text-text-secondary hover:text-primary transition-colors duration-200">Portfolio</a>
+                    <a href="#about" class="text-text-secondary hover:text-primary transition-colors duration-200">About</a>
+                    <a href="#careers" class="text-text-secondary hover:text-primary transition-colors duration-200">Careers</a>
+                    <a href="#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary-dark transition-colors duration-200">Contact</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden hamburger flex flex-col space-y-1.5 p-2">
+                    <span class="hamburger-line line1 w-6 h-0.5 bg-text-primary"></span>
+                    <span class="hamburger-line line2 w-6 h-0.5 bg-text-primary"></span>
+                    <span class="hamburger-line line3 w-6 h-0.5 bg-text-primary"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="menu-overlay fixed top-0 right-0 w-full h-full bg-white z-40 lg:hidden">
+        <div class="flex flex-col items-center justify-center h-full space-y-8 text-center">
+            <a href="#home" class="text-2xl font-semibold text-text-primary hover:text-primary transition-colors duration-200">Home</a>
+            <a href="#services" class="text-2xl font-semibold text-text-primary hover:text-primary transition-colors duration-200">Services</a>
+            <a href="#portfolio" class="text-2xl font-semibold text-text-primary hover:text-primary transition-colors duration-200">Portfolio</a>
+            <a href="#about" class="text-2xl font-semibold text-text-primary hover:text-primary transition-colors duration-200">About</a>
+            <a href="#careers" class="text-2xl font-semibold text-text-primary hover:text-primary transition-colors duration-200">Careers</a>
+            <a href="#contact" class="bg-primary text-white px-8 py-3 rounded-full text-xl font-semibold hover:bg-primary-dark transition-colors duration-200">Contact</a>
+        </div>
+    </div>
+    <!-- @END_COMPONENT: AdvancedNavigation -->
+
+    <!-- @COMPONENT: HeroSection -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-white to-purple-50">
+        <!-- Animated Background Elements -->
+        <div class="absolute inset-0">
+            <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/10 rounded-full blur-3xl animate-bounce-gentle"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-bounce-gentle" style="animation-delay: 1s;"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Hero Content -->
+                <div class="text-center lg:text-left animate-slide-up">
+                    <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-text-primary mb-6 leading-tight">
+                        Transforming Ideas Into 
+                        <span class="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Digital Excellence</span>
+                    </h1>
+                    <p class="text-xl md:text-2xl text-text-secondary mb-8 leading-relaxed">
+                        Empowering businesses and professionals with cutting-edge web solutions, portfolios, and digital experiences that drive success.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="#services" class="bg-primary text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-primary-dark transform hover:scale-105 transition-all duration-200 shadow-lg">
+                            Explore Our Services
+                        </a>
+                        <a href="#portfolio" class="border-2 border-primary text-primary px-8 py-4 rounded-full text-lg font-semibold hover:bg-primary hover:text-white transition-all duration-200">
+                            View Portfolio
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Visual -->
+                <div class="animate-fade-in">
+                    <!-- Professional software development team -->
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
+                         alt="Professional software development team collaborating" 
+                         class="rounded-2xl shadow-2xl w-full h-auto" />
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <div class="w-6 h-10 border-2 border-text-secondary rounded-full flex justify-center">
+                <div class="w-1 h-3 bg-text-secondary rounded-full mt-2 animate-pulse"></div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: HeroSection -->
+
+    <!-- @COMPONENT: ServicesSection -->
+    <section id="services" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="text-4xl md:text-5xl font-bold text-text-primary mb-4">Our Solutions</h2>
+                <p class="text-xl text-text-secondary max-w-3xl mx-auto">
+                    Comprehensive digital solutions tailored to elevate your business and professional presence
+                </p>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Web Development -->
+                <div class="scroll-reveal bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-2xl hover:shadow-xl transition-all duration-300 group">
+                    <div class="text-primary text-4xl mb-4 group-hover:scale-110 transition-transform duration-200">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-text-primary mb-4">Web Development</h3>
+                    <p class="text-text-secondary mb-6">Custom web applications for small businesses and startups. Modern, responsive, and scalable solutions.</p>
+                    <ul class="text-sm text-text-secondary space-y-2">
+                        <li class="flex items-center"><i class="fas fa-check text-primary mr-2"></i> Responsive Design</li>
+                        <li class="flex items-center"><i class="fas fa-check text-primary mr-2"></i> E-commerce Solutions</li>
+                        <li class="flex items-center"><i class="fas fa-check text-primary mr-2"></i> Performance Optimization</li>
+                    </ul>
+                </div>
+
+                <!-- Portfolio Websites -->
+                <div class="scroll-reveal bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-2xl hover:shadow-xl transition-all duration-300 group">
+                    <div class="text-purple-600 text-4xl mb-4 group-hover:scale-110 transition-transform duration-200">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-text-primary mb-4">Portfolio Websites</h3>
+                    <p class="text-text-secondary mb-6">Professional portfolios for creatives, professionals, and students to showcase their work effectively.</p>
+                    <ul class="text-sm text-text-secondary space-y-2">
+                        <li class="flex items-center"><i class="fas fa-check text-purple-600 mr-2"></i> Personal Branding</li>
+                        <li class="flex items-center"><i class="fas fa-check text-purple-600 mr-2"></i> Gallery Systems</li>
+                        <li class="flex items-center"><i class="fas fa-check text-purple-600 mr-2"></i> Contact Integration</li>
+                    </ul>
+                </div>
+
+                <!-- Academic Projects -->
+                <div class="scroll-reveal bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-2xl hover:shadow-xl transition-all duration-300 group">
+                    <div class="text-green-600 text-4xl mb-4 group-hover:scale-110 transition-transform duration-200">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-text-primary mb-4">Academic Projects</h3>
+                    <p class="text-text-secondary mb-6">Comprehensive academic project development for students and researchers with modern technologies.</p>
+                    <ul class="text-sm text-text-secondary space-y-2">
+                        <li class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i> Research Platforms</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i> Data Visualization</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i> Documentation</li>
+                    </ul>
+                </div>
+
+                <!-- ATS Resume Makers -->
+                <div class="scroll-reveal bg-gradient-to-br from-orange-50 to-orange-100 p-8 rounded-2xl hover:shadow-xl transition-all duration-300 group">
+                    <div class="text-orange-600 text-4xl mb-4 group-hover:scale-110 transition-transform duration-200">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-text-primary mb-4">ATS Resume Makers</h3>
+                    <p class="text-text-secondary mb-6">Professional ATS-friendly resume builders to help candidates stand out in the job market.</p>
+                    <ul class="text-sm text-text-secondary space-y-2">
+                        <li class="flex items-center"><i class="fas fa-check text-orange-600 mr-2"></i> ATS Optimization</li>
+                        <li class="flex items-center"><i class="fas fa-check text-orange-600 mr-2"></i> Multiple Templates</li>
+                        <li class="flex items-center"><i class="fas fa-check text-orange-600 mr-2"></i> Export Options</li>
+                    </ul>
+                </div>
+
+                <!-- Internship Programs -->
+                <div class="scroll-reveal bg-gradient-to-br from-pink-50 to-pink-100 p-8 rounded-2xl hover:shadow-xl transition-all duration-300 group">
+                    <div class="text-pink-600 text-4xl mb-4 group-hover:scale-110 transition-transform duration-200">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-text-primary mb-4">Internship Programs</h3>
+                    <p class="text-text-secondary mb-6">Comprehensive internship opportunities for aspiring developers and designers to gain real-world experience.</p>
+                    <ul class="text-sm text-text-secondary space-y-2">
+                        <li class="flex items-center"><i class="fas fa-check text-pink-600 mr-2"></i> Mentorship</li>
+                        <li class="flex items-center"><i class="fas fa-check text-pink-600 mr-2"></i> Real Projects</li>
+                        <li class="flex items-center"><i class="fas fa-check text-pink-600 mr-2"></i> Certification</li>
+                    </ul>
+                </div>
+
+                <!-- Freelancer Network -->
+                <div class="scroll-reveal bg-gradient-to-br from-indigo-50 to-indigo-100 p-8 rounded-2xl hover:shadow-xl transition-all duration-300 group">
+                    <div class="text-indigo-600 text-4xl mb-4 group-hover:scale-110 transition-transform duration-200">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-text-primary mb-4">Freelancer Network</h3>
+                    <p class="text-text-secondary mb-6">Connect with skilled freelancers for your projects or join our network as a freelance professional.</p>
+                    <ul class="text-sm text-text-secondary space-y-2">
+                        <li class="flex items-center"><i class="fas fa-check text-indigo-600 mr-2"></i> Vetted Professionals</li>
+                        <li class="flex items-center"><i class="fas fa-check text-indigo-600 mr-2"></i> Project Matching</li>
+                        <li class="flex items-center"><i class="fas fa-check text-indigo-600 mr-2"></i> Quality Assurance</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: ServicesSection -->
+
+    <!-- @COMPONENT: PortfolioSection -->
+    <section id="portfolio" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="text-4xl md:text-5xl font-bold text-text-primary mb-4">Our Portfolio</h2>
+                <p class="text-xl text-text-secondary max-w-3xl mx-auto">
+                    Showcasing our latest projects and success stories across various industries
+                </p>
+            </div>
+
+            <!-- Portfolio Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1: E-commerce Platform -->
+                <div class="scroll-reveal project-card bg-white rounded-2xl overflow-hidden shadow-lg">
+                    <!-- Modern e-commerce website interface -->
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
+                         alt="Modern e-commerce platform interface" 
+                         class="w-full h-48 object-cover" />
+                    <div class="p-6">
+                        <div class="flex items-center mb-2">
+                            <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">E-commerce</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-text-primary mb-2">Modern Retail Platform</h3>
+                        <p class="text-text-secondary text-sm mb-4">A comprehensive e-commerce solution with advanced inventory management and payment integration.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-text-secondary">React, Node.js, Stripe</span>
+                            <i class="fas fa-external-link-alt text-primary hover:text-primary-dark cursor-pointer"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Portfolio Website -->
+                <div class="scroll-reveal project-card bg-white rounded-2xl overflow-hidden shadow-lg">
+                    <!-- Creative portfolio website design -->
+                    <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
+                         alt="Creative portfolio website showcase" 
+                         class="w-full h-48 object-cover" />
+                    <div class="p-6">
+                        <div class="flex items-center mb-2">
+                            <span class="bg-purple-100 text-purple-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Portfolio</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-text-primary mb-2">Creative Portfolio</h3>
+                        <p class="text-text-secondary text-sm mb-4">Stunning portfolio website for a digital artist with interactive galleries and smooth animations.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-text-secondary">Vue.js, GSAP, Netlify</span>
+                            <i class="fas fa-external-link-alt text-primary hover:text-primary-dark cursor-pointer"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Academic Research Platform -->
+                <div class="scroll-reveal project-card bg-white rounded-2xl overflow-hidden shadow-lg">
+                    <!-- Academic research platform interface -->
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
+                         alt="Academic research platform dashboard" 
+                         class="w-full h-48 object-cover" />
+                    <div class="p-6">
+                        <div class="flex items-center mb-2">
+                            <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Academic</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-text-primary mb-2">Research Platform</h3>
+                        <p class="text-text-secondary text-sm mb-4">Collaborative research platform with data visualization and publication management system.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-text-secondary">Django, Chart.js, AWS</span>
+                            <i class="fas fa-external-link-alt text-primary hover:text-primary-dark cursor-pointer"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: Resume Builder App -->
+                <div class="scroll-reveal project-card bg-white rounded-2xl overflow-hidden shadow-lg">
+                    <!-- Professional resume builder interface -->
+                    <img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
+                         alt="Professional resume builder application" 
+                         class="w-full h-48 object-cover" />
+                    <div class="p-6">
+                        <div class="flex items-center mb-2">
+                            <span class="bg-orange-100 text-orange-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Tools</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-text-primary mb-2">ATS Resume Builder</h3>
+                        <p class="text-text-secondary text-sm mb-4">AI-powered resume builder with ATS optimization and multiple professional templates.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-text-secondary">React, Python, OpenAI</span>
+                            <i class="fas fa-external-link-alt text-primary hover:text-primary-dark cursor-pointer"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5: Business Dashboard -->
+                <div class="scroll-reveal project-card bg-white rounded-2xl overflow-hidden shadow-lg">
+                    <!-- Business analytics dashboard -->
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
+                         alt="Business analytics dashboard interface" 
+                         class="w-full h-48 object-cover" />
+                    <div class="p-6">
+                        <div class="flex items-center mb-2">
+                            <span class="bg-indigo-100 text-indigo-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Analytics</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-text-primary mb-2">Analytics Dashboard</h3>
+                        <p class="text-text-secondary text-sm mb-4">Real-time business intelligence dashboard with advanced reporting and data visualization.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-text-secondary">Angular, D3.js, Firebase</span>
+                            <i class="fas fa-external-link-alt text-primary hover:text-primary-dark cursor-pointer"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6: Mobile App Landing -->
+                <div class="scroll-reveal project-card bg-white rounded-2xl overflow-hidden shadow-lg">
+                    <!-- Mobile app landing page design -->
+                    <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
+                         alt="Mobile app landing page design" 
+                         class="w-full h-48 object-cover" />
+                    <div class="p-6">
+                        <div class="flex items-center mb-2">
+                            <span class="bg-pink-100 text-pink-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Mobile</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-text-primary mb-2">App Landing Page</h3>
+                        <p class="text-text-secondary text-sm mb-4">Converting landing page for a productivity mobile app with interactive prototypes.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-text-secondary">Next.js, Framer Motion</span>
+                            <i class="fas fa-external-link-alt text-primary hover:text-primary-dark cursor-pointer"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 7: Learning Management System -->
+                <div class="scroll-reveal project-card bg-white rounded-2xl overflow-hidden shadow-lg">
+                    <!-- Online learning platform interface -->
+                    <img src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
+                         alt="Online learning management system" 
+                         class="w-full h-48 object-cover" />
+                    <div class="p-6">
+                        <div class="flex items-center mb-2">
+                            <span class="bg-cyan-100 text-cyan-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Education</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-text-primary mb-2">Learning Platform</h3>
+                        <p class="text-text-secondary text-sm mb-4">Comprehensive LMS with course management, progress tracking, and interactive content.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-text-secondary">Laravel, Vue.js, MySQL</span>
+                            <i class="fas fa-external-link-alt text-primary hover:text-primary-dark cursor-pointer"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 8: Startup Website -->
+                <div class="scroll-reveal project-card bg-white rounded-2xl overflow-hidden shadow-lg">
+                    <!-- Modern startup company website -->
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
+                         alt="Modern startup company website" 
+                         class="w-full h-48 object-cover" />
+                    <div class="p-6">
+                        <div class="flex items-center mb-2">
+                            <span class="bg-red-100 text-red-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Startup</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-text-primary mb-2">Tech Startup Site</h3>
+                        <p class="text-text-secondary text-sm mb-4">Modern startup website with investor portal, team showcase, and product demonstrations.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-text-secondary">Gatsby, GraphQL, Contentful</span>
+                            <i class="fas fa-external-link-alt text-primary hover:text-primary-dark cursor-pointer"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 9: Healthcare Platform -->
+                <div class="scroll-reveal project-card bg-white rounded-2xl overflow-hidden shadow-lg">
+                    <!-- Healthcare management platform -->
+                    <img src="https://pixabay.com/get/g1e1ed83b92354bdcc01558108a7f52de3c266c18338bc1eab3651bbd86a648480c5c9d79775a693e8730d83ad6be61207f59768ffb877d6341b79ddbdd9829e8_1280.jpg" 
+                         alt="Healthcare management platform interface" 
+                         class="w-full h-48 object-cover" />
+                    <div class="p-6">
+                        <div class="flex items-center mb-2">
+                            <span class="bg-teal-100 text-teal-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Healthcare</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-text-primary mb-2">Healthcare Portal</h3>
+                        <p class="text-text-secondary text-sm mb-4">Secure patient management system with appointment scheduling and telemedicine features.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-text-secondary">HIPAA, React, Node.js</span>
+                            <i class="fas fa-external-link-alt text-primary hover:text-primary-dark cursor-pointer"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View More Button -->
+            <div class="text-center mt-12 scroll-reveal">
+                <a href="#contact" class="bg-primary text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-primary-dark transform hover:scale-105 transition-all duration-200 shadow-lg inline-flex items-center space-x-2">
+                    <span>View All Projects</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: PortfolioSection -->
+
+    <!-- @COMPONENT: AboutSection -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="text-4xl md:text-5xl font-bold text-text-primary mb-4">About FT Solutions</h2>
+                <p class="text-xl text-text-secondary max-w-3xl mx-auto">
+                    Driven by innovation, powered by expertise, dedicated to your success
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-16 items-center mb-20">
+                <!-- Company Story -->
+                <div class="scroll-reveal">
+                    <h3 class="text-3xl font-bold text-text-primary mb-6">Our Story</h3>
+                    <p class="text-lg text-text-secondary mb-6 leading-relaxed">
+                        Founded with a vision to democratize digital excellence, FT Solutions has been at the forefront of web development innovation. We believe that every business, regardless of size, deserves access to world-class digital solutions.
+                    </p>
+                    <p class="text-lg text-text-secondary mb-8 leading-relaxed">
+                        Our journey began with a simple mission: to bridge the gap between complex technology and practical business needs. Today, we're proud to have helped hundreds of businesses and professionals establish their digital presence.
+                    </p>
+                    
+                    <!-- Stats -->
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-primary mb-2">150+</div>
+                            <div class="text-text-secondary">Projects Completed</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-primary mb-2">98%</div>
+                            <div class="text-text-secondary">Client Satisfaction</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-primary mb-2">24/7</div>
+                            <div class="text-text-secondary">Support Available</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-primary mb-2">5+</div>
+                            <div class="text-text-secondary">Years Experience</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Company Image -->
+                <div class="scroll-reveal">
+                    <!-- Professional business team meeting -->
+                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
+                         alt="Professional business team meeting and collaboration" 
+                         class="rounded-2xl shadow-2xl w-full h-auto" />
+                </div>
+            </div>
+
+            <!-- Team Section -->
+            <div class="scroll-reveal">
+                <h3 class="text-3xl font-bold text-text-primary text-center mb-12">Meet Our Team</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Team Member 1 -->
+                    <div class="text-center group">
+                        <!-- Professional software developer portrait -->
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400" 
+                             alt="Professional software developer" 
+                             class="w-32 h-32 rounded-full mx-auto mb-4 object-cover group-hover:scale-105 transition-transform duration-200" />
+                        <h4 class="text-xl font-semibold text-text-primary mb-2">Alex Johnson</h4>
+                        <p class="text-text-secondary mb-2">Lead Developer</p>
+                        <div class="flex justify-center space-x-3">
+                            <i class="fab fa-linkedin text-primary hover:text-primary-dark cursor-pointer"></i>
+                            <i class="fab fa-github text-primary hover:text-primary-dark cursor-pointer"></i>
+                        </div>
+                    </div>
+
+                    <!-- Team Member 2 -->
+                    <div class="text-center group">
+                        <!-- Professional UX designer portrait -->
+                        <img src="https://pixabay.com/get/g09c025e93c5b16c852419c8bf807845da5a38dd6f393f3476719fcccb80baaa454b6a282d3389e63335513da38e74e33736f7df0df59ca517a38ab6b49a2b0af_1280.jpg" 
+                             alt="Professional UX designer" 
+                             class="w-32 h-32 rounded-full mx-auto mb-4 object-cover group-hover:scale-105 transition-transform duration-200" />
+                        <h4 class="text-xl font-semibold text-text-primary mb-2">Sarah Chen</h4>
+                        <p class="text-text-secondary mb-2">UX/UI Designer</p>
+                        <div class="flex justify-center space-x-3">
+                            <i class="fab fa-linkedin text-primary hover:text-primary-dark cursor-pointer"></i>
+                            <i class="fab fa-dribbble text-primary hover:text-primary-dark cursor-pointer"></i>
+                        </div>
+                    </div>
+
+                    <!-- Team Member 3 -->
+                    <div class="text-center group">
+                        <!-- Professional project manager portrait -->
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400" 
+                             alt="Professional project manager" 
+                             class="w-32 h-32 rounded-full mx-auto mb-4 object-cover group-hover:scale-105 transition-transform duration-200" />
+                        <h4 class="text-xl font-semibold text-text-primary mb-2">Michael Davis</h4>
+                        <p class="text-text-secondary mb-2">Project Manager</p>
+                        <div class="flex justify-center space-x-3">
+                            <i class="fab fa-linkedin text-primary hover:text-primary-dark cursor-pointer"></i>
+                            <i class="fab fa-twitter text-primary hover:text-primary-dark cursor-pointer"></i>
+                        </div>
+                    </div>
+
+                    <!-- Team Member 4 -->
+                    <div class="text-center group">
+                        <!-- Professional marketing specialist portrait -->
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400" 
+                             alt="Professional marketing specialist" 
+                             class="w-32 h-32 rounded-full mx-auto mb-4 object-cover group-hover:scale-105 transition-transform duration-200" />
+                        <h4 class="text-xl font-semibold text-text-primary mb-2">Emily Rodriguez</h4>
+                        <p class="text-text-secondary mb-2">Marketing Specialist</p>
+                        <div class="flex justify-center space-x-3">
+                            <i class="fab fa-linkedin text-primary hover:text-primary-dark cursor-pointer"></i>
+                            <i class="fab fa-instagram text-primary hover:text-primary-dark cursor-pointer"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: AboutSection -->
+
+    <!-- @COMPONENT: CareersSection -->
+    <section id="careers" class="py-20 bg-gradient-to-br from-primary/5 to-purple-100/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="text-4xl md:text-5xl font-bold text-text-primary mb-4">Join Our Team</h2>
+                <p class="text-xl text-text-secondary max-w-3xl mx-auto">
+                    Grow your career with us through internships, freelance opportunities, and full-time positions
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-16 items-center mb-16">
+                <!-- Opportunities -->
+                <div class="scroll-reveal">
+                    <h3 class="text-3xl font-bold text-text-primary mb-8">Opportunities Available</h3>
+                    
+                    <!-- Internship Program -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg mb-6 hover:shadow-xl transition-shadow duration-300">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-graduation-cap text-primary text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-text-primary">Internship Program</h4>
+                                <p class="text-text-secondary">3-6 month programs</p>
+                            </div>
+                        </div>
+                        <p class="text-text-secondary mb-4">Hands-on experience with real projects, mentorship from senior developers, and potential for full-time positions.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">Frontend Development</span>
+                            <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">Backend Development</span>
+                            <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded-full">UI/UX Design</span>
+                        </div>
+                        <a href="#contact" class="text-primary font-semibold hover:text-primary-dark">Apply Now →</a>
+                    </div>
+
+                    <!-- Freelance Network -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg mb-6 hover:shadow-xl transition-shadow duration-300">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-laptop-code text-accent text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-text-primary">Freelance Network</h4>
+                                <p class="text-text-secondary">Project-based work</p>
+                            </div>
+                        </div>
+                        <p class="text-text-secondary mb-4">Join our network of skilled freelancers and work on exciting projects with competitive compensation and flexible schedules.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-orange-100 text-orange-800 text-xs px-2 py-1 rounded-full">Web Development</span>
+                            <span class="bg-pink-100 text-pink-800 text-xs px-2 py-1 rounded-full">Mobile Apps</span>
+                            <span class="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded-full">Digital Marketing</span>
+                        </div>
+                        <a href="#contact" class="text-primary font-semibold hover:text-primary-dark">Join Network →</a>
+                    </div>
+
+                    <!-- Full-time Positions -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-green-500/10 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-briefcase text-green-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-text-primary">Full-time Positions</h4>
+                                <p class="text-text-secondary">Career opportunities</p>
+                            </div>
+                        </div>
+                        <p class="text-text-secondary mb-4">Build your career with us in a collaborative environment with continuous learning opportunities and competitive benefits.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-cyan-100 text-cyan-800 text-xs px-2 py-1 rounded-full">Senior Developer</span>
+                            <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded-full">DevOps Engineer</span>
+                            <span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full">Product Manager</span>
+                        </div>
+                        <a href="#contact" class="text-primary font-semibold hover:text-primary-dark">View Openings →</a>
+                    </div>
+                </div>
+
+                <!-- Benefits & Culture -->
+                <div class="scroll-reveal">
+                    <!-- Student portfolio and workspace -->
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
+                         alt="Student portfolio showcase and collaborative workspace" 
+                         class="rounded-2xl shadow-2xl w-full h-auto mb-8" />
+
+                    <h3 class="text-3xl font-bold text-text-primary mb-6">Why Choose FT Solutions?</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-check-circle text-primary text-xl"></i>
+                            <span class="text-lg text-text-secondary">Flexible working arrangements</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-check-circle text-primary text-xl"></i>
+                            <span class="text-lg text-text-secondary">Continuous learning and development</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-check-circle text-primary text-xl"></i>
+                            <span class="text-lg text-text-secondary">Work on cutting-edge technologies</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-check-circle text-primary text-xl"></i>
+                            <span class="text-lg text-text-secondary">Competitive compensation packages</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-check-circle text-primary text-xl"></i>
+                            <span class="text-lg text-text-secondary">Collaborative and inclusive culture</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-check-circle text-primary text-xl"></i>
+                            <span class="text-lg text-text-secondary">Mentorship from industry experts</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: CareersSection -->
+
+    <!-- @COMPONENT: ContactSection -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="text-4xl md:text-5xl font-bold text-text-primary mb-4">Get In Touch</h2>
+                <p class="text-xl text-text-secondary max-w-3xl mx-auto">
+                    Ready to transform your ideas into digital reality? Let's start the conversation.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-16">
+                <!-- Contact Form -->
+                <div class="scroll-reveal">
+                    <form class="space-y-6" data-mock="true">
+                        <!-- TODO: Implement form submission functionality -->
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="firstName" class="block text-sm font-medium text-text-primary mb-2">First Name</label>
+                                <input type="text" id="firstName" name="firstName" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200" placeholder="John">
+                            </div>
+                            <div>
+                                <label for="lastName" class="block text-sm font-medium text-text-primary mb-2">Last Name</label>
+                                <input type="text" id="lastName" name="lastName" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200" placeholder="Doe">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-text-primary mb-2">Email Address</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200" placeholder="john@example.com">
+                        </div>
+
+                        <div>
+                            <label for="service" class="block text-sm font-medium text-text-primary mb-2">Service Interest</label>
+                            <select id="service" name="service" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200">
+                                <option value="">Select a service</option>
+                                <option value="web-development">Web Development</option>
+                                <option value="portfolio">Portfolio Website</option>
+                                <option value="academic">Academic Project</option>
+                                <option value="resume">ATS Resume Maker</option>
+                                <option value="internship">Internship Program</option>
+                                <option value="freelance">Freelance Opportunities</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="budget" class="block text-sm font-medium text-text-primary mb-2">Project Budget</label>
+                            <select id="budget" name="budget" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200">
+                                <option value="">Select budget range</option>
+                                <option value="under-5k">Under $5,000</option>
+                                <option value="5k-10k">$5,000 - $10,000</option>
+                                <option value="10k-25k">$10,000 - $25,000</option>
+                                <option value="25k-plus">$25,000+</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-text-primary mb-2">Project Details</label>
+                            <textarea id="message" name="message" rows="6" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200" placeholder="Tell us about your project requirements, timeline, and any specific features you need..."></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-primary text-white py-4 px-6 rounded-lg text-lg font-semibold hover:bg-primary-dark transform hover:scale-105 transition-all duration-200 shadow-lg">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="scroll-reveal">
+                    <div class="space-y-8">
+                        <!-- Contact Details -->
+                        <div>
+                            <h3 class="text-2xl font-bold text-text-primary mb-6">Contact Information</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-envelope text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold text-text-primary">Email</p>
+                                        <p class="text-text-secondary">hello@ftsolutions.com</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-phone text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold text-text-primary">Phone</p>
+                                        <p class="text-text-secondary">+1 (555) 123-4567</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-map-marker-alt text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold text-text-primary">Office</p>
+                                        <p class="text-text-secondary">123 Innovation Drive<br>Tech Hub, CA 94105</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-clock text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold text-text-primary">Business Hours</p>
+                                        <p class="text-text-secondary">Mon - Fri: 9:00 AM - 6:00 PM<br>Sat: 10:00 AM - 4:00 PM</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Social Media -->
+                        <div>
+                            <h3 class="text-2xl font-bold text-text-primary mb-6">Follow Us</h3>
+                            <div class="flex space-x-4">
+                                <a href="#" class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-200">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                <a href="#" class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-200">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-200">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-200">
+                                    <i class="fab fa-dribbble"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- CTA Image -->
+                        <div class="mt-8">
+                            <!-- Technology and coding workspace -->
+                            <img src="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
+                                 alt="Technology and coding workspace with modern equipment" 
+                                 class="rounded-xl shadow-lg w-full h-auto" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: ContactSection -->
+
+    <!-- @COMPONENT: Footer -->
+    <footer class="bg-text-primary text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <!-- Company Info -->
+                <div>
+                    <div class="flex items-center space-x-2 mb-6">
+                        <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+                            <i class="fas fa-code text-white text-lg"></i>
+                        </div>
+                        <span class="text-xl font-bold">FT Solutions</span>
+                    </div>
+                    <p class="text-gray-300 mb-6">Transforming ideas into digital excellence with innovative web solutions and professional services.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-primary transition-colors duration-200">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-primary transition-colors duration-200">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-primary transition-colors duration-200">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-primary transition-colors duration-200">
+                            <i class="fab fa-dribbble text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Services</h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li><a href="#services" class="hover:text-primary transition-colors duration-200">Web Development</a></li>
+                        <li><a href="#services" class="hover:text-primary transition-colors duration-200">Portfolio Websites</a></li>
+                        <li><a href="#services" class="hover:text-primary transition-colors duration-200">Academic Projects</a></li>
+                        <li><a href="#services" class="hover:text-primary transition-colors duration-200">ATS Resume Makers</a></li>
+                        <li><a href="#careers" class="hover:text-primary transition-colors duration-200">Internship Programs</a></li>
+                        <li><a href="#careers" class="hover:text-primary transition-colors duration-200">Freelance Network</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Company</h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li><a href="#about" class="hover:text-primary transition-colors duration-200">About Us</a></li>
+                        <li><a href="#portfolio" class="hover:text-primary transition-colors duration-200">Our Work</a></li>
+                        <li><a href="#careers" class="hover:text-primary transition-colors duration-200">Careers</a></li>
+                        <li><a href="#contact" class="hover:text-primary transition-colors duration-200">Contact</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors duration-200">Blog</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors duration-200">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Stay Updated</h3>
+                    <p class="text-gray-300 mb-4">Subscribe to our newsletter for the latest updates and insights.</p>
+                    <form class="space-y-3" data-mock="true">
+                        <!-- TODO: Implement newsletter subscription -->
+                        <input type="email" placeholder="Enter your email" class="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-white">
+                        <button type="submit" class="w-full bg-primary text-white py-2 px-4 rounded-lg hover:bg-primary-dark transition-colors duration-200">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="border-t border-gray-700 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-300 text-sm mb-4 md:mb-0">
+                        © 2024 FT Solutions. All rights reserved.
+                    </p>
+                    <div class="flex space-x-6 text-sm text-gray-300">
+                        <a href="#" class="hover:text-primary transition-colors duration-200">Terms of Service</a>
+                        <a href="#" class="hover:text-primary transition-colors duration-200">Privacy Policy</a>
+                        <a href="#" class="hover:text-primary transition-colors duration-200">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- @END_COMPONENT: Footer -->
+
+    <script>
+        // Utility function to wrap scripts in IIFE
+        (function() {
+            // Mobile Menu Toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                mobileMenu.classList.toggle('active');
+                mobileMenuBtn.classList.toggle('active');
+            });
+
+            // Close mobile menu when clicking on links
+            const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.remove('active');
+                    mobileMenuBtn.classList.remove('active');
+                });
+            });
+
+            // Scroll Animation
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all scroll-reveal elements
+            const scrollElements = document.querySelectorAll('.scroll-reveal');
+            scrollElements.forEach(el => observer.observe(el));
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        const offsetTop = target.offsetTop - 80; // Account for fixed header
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Add scrolled class to navbar
+            window.addEventListener('scroll', function() {
+                const navbar = document.querySelector('nav');
+                if (window.scrollY > 100) {
+                    navbar.classList.add('bg-white/95');
+                } else {
+                    navbar.classList.remove('bg-white/95');
+                }
+            });
+
+            // Form submission handlers (mock functionality)
+            const forms = document.querySelectorAll('form[data-mock="true"]');
+            forms.forEach(form => {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // TODO: Implement actual form submission logic
+                    alert('Thank you for your message! We\'ll get back to you soon.');
+                    form.reset();
+                });
+            });
+        })();
+    </script>
+</body>
+</html>

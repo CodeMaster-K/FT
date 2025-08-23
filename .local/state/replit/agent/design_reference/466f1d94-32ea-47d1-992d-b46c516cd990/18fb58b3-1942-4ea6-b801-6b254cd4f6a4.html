@@ -1,0 +1,882 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FT Solutions - Innovative Software Solutions for Modern Business</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb',
+                        secondary: '#1e40af',
+                        accent: '#f59e0b',
+                        muted: '#64748b'
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        };
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="font-inter bg-slate-50">
+    <!-- @COMPONENT: Navigation -->
+    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md border-b border-gray-200 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="text-2xl font-bold text-primary">
+                        <i class="fas fa-code mr-2"></i>FT Solutions
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="text-gray-700 hover:text-primary transition-colors duration-200 font-medium">Home</a>
+                        <a href="#services" class="text-gray-700 hover:text-primary transition-colors duration-200 font-medium">Services</a>
+                        <a href="#portfolio" class="text-gray-700 hover:text-primary transition-colors duration-200 font-medium">Portfolio</a>
+                        <a href="#about" class="text-gray-700 hover:text-primary transition-colors duration-200 font-medium">About</a>
+                        <a href="#careers" class="text-gray-700 hover:text-primary transition-colors duration-200 font-medium">Careers</a>
+                        <a href="#contact" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary transition-colors duration-200">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-primary">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-gray-200">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#home" class="block px-3 py-2 text-gray-700 hover:text-primary">Home</a>
+                <a href="#services" class="block px-3 py-2 text-gray-700 hover:text-primary">Services</a>
+                <a href="#portfolio" class="block px-3 py-2 text-gray-700 hover:text-primary">Portfolio</a>
+                <a href="#about" class="block px-3 py-2 text-gray-700 hover:text-primary">About</a>
+                <a href="#careers" class="block px-3 py-2 text-gray-700 hover:text-primary">Careers</a>
+                <a href="#contact" class="block px-3 py-2 text-gray-700 hover:text-primary">Contact</a>
+            </div>
+        </div>
+    </nav>
+    <!-- @END_COMPONENT: Navigation -->
+
+    <!-- @COMPONENT: Hero Section -->
+    <section id="home" class="pt-16 min-h-screen gradient-bg flex items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="text-white animate-fade-in">
+                    <h1 class="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                        Innovative Software <span class="text-accent">Solutions</span> for Modern Business
+                    </h1>
+                    <p class="text-xl mb-8 text-gray-100 leading-relaxed">
+                        Empowering businesses and professionals with cutting-edge web development, portfolio creation, and digital solutions that drive growth and success.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#services" class="bg-accent text-white px-8 py-4 rounded-lg font-semibold hover:bg-yellow-500 transition-colors duration-200 text-center">
+                            Explore Services
+                        </a>
+                        <a href="#portfolio" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-gray-800 transition-colors duration-200 text-center">
+                            View Portfolio
+                        </a>
+                    </div>
+                </div>
+                <div class="animate-fade-in">
+                    <!-- Professional software development team working collaboratively -->
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" alt="Professional software development team" class="rounded-2xl shadow-2xl w-full h-auto">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Hero Section -->
+
+    <!-- @COMPONENT: Services Section -->
+    <section id="services" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Our Solutions</h2>
+                <p class="text-xl text-muted max-w-3xl mx-auto">Comprehensive software solutions tailored to meet your unique business needs and drive digital transformation.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Web Development -->
+                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-2xl hover-lift">
+                    <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-laptop-code text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Web Development</h3>
+                    <p class="text-muted mb-6">Custom web applications for small businesses and startups. Responsive, scalable, and user-friendly solutions.</p>
+                    <ul class="text-sm text-muted space-y-2">
+                        <li><i class="fas fa-check text-primary mr-2"></i>Responsive Design</li>
+                        <li><i class="fas fa-check text-primary mr-2"></i>E-commerce Solutions</li>
+                        <li><i class="fas fa-check text-primary mr-2"></i>CMS Integration</li>
+                        <li><i class="fas fa-check text-primary mr-2"></i>SEO Optimization</li>
+                    </ul>
+                </div>
+
+                <!-- Portfolio Websites -->
+                <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-2xl hover-lift">
+                    <div class="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-briefcase text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Portfolio Websites</h3>
+                    <p class="text-muted mb-6">Professional portfolio websites for professionals and students to showcase their work and achievements.</p>
+                    <ul class="text-sm text-muted space-y-2">
+                        <li><i class="fas fa-check text-purple-600 mr-2"></i>Professional Design</li>
+                        <li><i class="fas fa-check text-purple-600 mr-2"></i>Project Showcase</li>
+                        <li><i class="fas fa-check text-purple-600 mr-2"></i>Contact Integration</li>
+                        <li><i class="fas fa-check text-purple-600 mr-2"></i>Mobile Optimized</li>
+                    </ul>
+                </div>
+
+                <!-- Academic Projects -->
+                <div class="bg-gradient-to-br from-green-50 to-emerald-50 p-8 rounded-2xl hover-lift">
+                    <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-graduation-cap text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Academic Projects</h3>
+                    <p class="text-muted mb-6">Custom solutions for academic institutions and student projects with modern technology stacks.</p>
+                    <ul class="text-sm text-muted space-y-2">
+                        <li><i class="fas fa-check text-green-600 mr-2"></i>Research Tools</li>
+                        <li><i class="fas fa-check text-green-600 mr-2"></i>Data Analysis</li>
+                        <li><i class="fas fa-check text-green-600 mr-2"></i>Learning Management</li>
+                        <li><i class="fas fa-check text-green-600 mr-2"></i>Documentation</li>
+                    </ul>
+                </div>
+
+                <!-- ATS Resume Maker -->
+                <div class="bg-gradient-to-br from-orange-50 to-red-50 p-8 rounded-2xl hover-lift">
+                    <div class="w-12 h-12 bg-orange-600 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-file-alt text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">ATS Resume Maker</h3>
+                    <p class="text-muted mb-6">Advanced resume builder optimized for Applicant Tracking Systems to increase job application success rates.</p>
+                    <ul class="text-sm text-muted space-y-2">
+                        <li><i class="fas fa-check text-orange-600 mr-2"></i>ATS Optimization</li>
+                        <li><i class="fas fa-check text-orange-600 mr-2"></i>Multiple Templates</li>
+                        <li><i class="fas fa-check text-orange-600 mr-2"></i>PDF Export</li>
+                        <li><i class="fas fa-check text-orange-600 mr-2"></i>Keyword Analysis</li>
+                    </ul>
+                </div>
+
+                <!-- Internship Program -->
+                <div class="bg-gradient-to-br from-teal-50 to-cyan-50 p-8 rounded-2xl hover-lift">
+                    <div class="w-12 h-12 bg-teal-600 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-users text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Internship Program</h3>
+                    <p class="text-muted mb-6">Comprehensive internship opportunities for students and new graduates to gain real-world experience.</p>
+                    <ul class="text-sm text-muted space-y-2">
+                        <li><i class="fas fa-check text-teal-600 mr-2"></i>Hands-on Training</li>
+                        <li><i class="fas fa-check text-teal-600 mr-2"></i>Mentorship</li>
+                        <li><i class="fas fa-check text-teal-600 mr-2"></i>Certification</li>
+                        <li><i class="fas fa-check text-teal-600 mr-2"></i>Career Guidance</li>
+                    </ul>
+                </div>
+
+                <!-- Freelancer Network -->
+                <div class="bg-gradient-to-br from-indigo-50 to-blue-50 p-8 rounded-2xl hover-lift">
+                    <div class="w-12 h-12 bg-indigo-600 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-handshake text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Freelancer Network</h3>
+                    <p class="text-muted mb-6">Connect with skilled freelancers and expand your team with the right talent for your projects.</p>
+                    <ul class="text-sm text-muted space-y-2">
+                        <li><i class="fas fa-check text-indigo-600 mr-2"></i>Vetted Professionals</li>
+                        <li><i class="fas fa-check text-indigo-600 mr-2"></i>Project Matching</li>
+                        <li><i class="fas fa-check text-indigo-600 mr-2"></i>Quality Assurance</li>
+                        <li><i class="fas fa-check text-indigo-600 mr-2"></i>Ongoing Support</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Services Section -->
+
+    <!-- @COMPONENT: Portfolio Section -->
+    <section id="portfolio" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Our Portfolio</h2>
+                <p class="text-xl text-muted max-w-3xl mx-auto">Showcasing our successful projects and the impact we've made for our clients across various industries.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1: E-commerce Platform -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover-lift">
+                    <!-- Modern e-commerce website dashboard showing analytics and products -->
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" alt="E-commerce platform dashboard" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">TechStore E-commerce</h3>
+                        <p class="text-muted mb-4">Complete e-commerce solution with inventory management, payment integration, and analytics dashboard.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">React</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-800 text-xs rounded-full">Node.js</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 text-xs rounded-full">MongoDB</span>
+                        </div>
+                        <a href="#" class="text-primary font-semibold hover:text-secondary transition-colors duration-200">View Project <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+
+                <!-- Project 2: Portfolio Website -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover-lift">
+                    <!-- Creative professional portfolio website design -->
+                    <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" alt="Professional portfolio website" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Designer Portfolio</h3>
+                        <p class="text-muted mb-4">Stunning portfolio website for a creative professional with interactive galleries and smooth animations.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">HTML5</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-800 text-xs rounded-full">CSS3</span>
+                            <span class="px-3 py-1 bg-yellow-100 text-yellow-800 text-xs rounded-full">JavaScript</span>
+                        </div>
+                        <a href="#" class="text-primary font-semibold hover:text-secondary transition-colors duration-200">View Project <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+
+                <!-- Project 3: Academic Management System -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover-lift">
+                    <!-- University management system interface -->
+                    <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" alt="Academic management system" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">EduManage System</h3>
+                        <p class="text-muted mb-4">Comprehensive academic management system for universities with student, faculty, and course management.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">Angular</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-800 text-xs rounded-full">Spring Boot</span>
+                            <span class="px-3 py-1 bg-orange-100 text-orange-800 text-xs rounded-full">MySQL</span>
+                        </div>
+                        <a href="#" class="text-primary font-semibold hover:text-secondary transition-colors duration-200">View Project <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+
+                <!-- Project 4: Resume Builder App -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover-lift">
+                    <!-- Resume builder application interface -->
+                    <img src="https://images.unsplash.com/photo-1586953208448-b95a79798f07?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" alt="Resume builder application" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">SmartResume Builder</h3>
+                        <p class="text-muted mb-4">AI-powered resume builder with ATS optimization, multiple templates, and real-time preview.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">Vue.js</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-800 text-xs rounded-full">Python</span>
+                            <span class="px-3 py-1 bg-red-100 text-red-800 text-xs rounded-full">Redis</span>
+                        </div>
+                        <a href="#" class="text-primary font-semibold hover:text-secondary transition-colors duration-200">View Project <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+
+                <!-- Project 5: Business Website -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover-lift">
+                    <!-- Professional business website homepage -->
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" alt="Business website design" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">FinTech Solutions</h3>
+                        <p class="text-muted mb-4">Modern corporate website for a financial technology company with interactive features and data visualization.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">React</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-800 text-xs rounded-full">TypeScript</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 text-xs rounded-full">GraphQL</span>
+                        </div>
+                        <a href="#" class="text-primary font-semibold hover:text-secondary transition-colors duration-200">View Project <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+
+                <!-- Project 6: Mobile App -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover-lift">
+                    <!-- Mobile application interface design -->
+                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" alt="Mobile application design" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">HealthTrack Mobile</h3>
+                        <p class="text-muted mb-4">Cross-platform mobile application for health tracking with wearable device integration and analytics.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">React Native</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-800 text-xs rounded-full">Firebase</span>
+                            <span class="px-3 py-1 bg-orange-100 text-orange-800 text-xs rounded-full">IoT</span>
+                        </div>
+                        <a href="#" class="text-primary font-semibold hover:text-secondary transition-colors duration-200">View Project <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+
+                <!-- Project 7: SaaS Platform -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover-lift">
+                    <!-- SaaS platform dashboard interface -->
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" alt="SaaS platform dashboard" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">ProjectPro SaaS</h3>
+                        <p class="text-muted mb-4">Cloud-based project management platform with team collaboration, time tracking, and reporting features.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">Next.js</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-800 text-xs rounded-full">AWS</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 text-xs rounded-full">PostgreSQL</span>
+                        </div>
+                        <a href="#" class="text-primary font-semibold hover:text-secondary transition-colors duration-200">View Project <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+
+                <!-- Project 8: AI-Powered Tool -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover-lift">
+                    <!-- AI powered analytics and machine learning interface -->
+                    <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" alt="AI analytics platform" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">AI Analytics Suite</h3>
+                        <p class="text-muted mb-4">Machine learning powered analytics platform for business intelligence with predictive modeling capabilities.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">Python</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-800 text-xs rounded-full">TensorFlow</span>
+                            <span class="px-3 py-1 bg-red-100 text-red-800 text-xs rounded-full">Docker</span>
+                        </div>
+                        <a href="#" class="text-primary font-semibold hover:text-secondary transition-colors duration-200">View Project <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+
+                <!-- Project 9: Blockchain App -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover-lift">
+                    <!-- Blockchain and cryptocurrency application interface -->
+                    <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" alt="Blockchain application" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">CryptoWallet DApp</h3>
+                        <p class="text-muted mb-4">Decentralized application for cryptocurrency wallet management with smart contract integration.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">Web3.js</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-800 text-xs rounded-full">Solidity</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 text-xs rounded-full">Ethereum</span>
+                        </div>
+                        <a href="#" class="text-primary font-semibold hover:text-secondary transition-colors duration-200">View Project <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+
+                <!-- Project 10: Gaming Platform -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover-lift">
+                    <!-- Gaming platform and game development interface -->
+                    <img src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" alt="Gaming platform interface" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">GameHub Platform</h3>
+                        <p class="text-muted mb-4">Multiplayer gaming platform with real-time matchmaking, tournaments, and social features.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">Unity</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-800 text-xs rounded-full">Socket.io</span>
+                            <span class="px-3 py-1 bg-orange-100 text-orange-800 text-xs rounded-full">WebRTC</span>
+                        </div>
+                        <a href="#" class="text-primary font-semibold hover:text-secondary transition-colors duration-200">View Project <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="#contact" class="bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-secondary transition-colors duration-200">Start Your Project</a>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Portfolio Section -->
+
+    <!-- @COMPONENT: About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold text-gray-900 mb-6">About FT Solutions</h2>
+                    <p class="text-lg text-muted mb-6 leading-relaxed">
+                        Founded with a vision to democratize technology, FT Solutions has been at the forefront of digital innovation for over 5 years. We specialize in creating custom software solutions that empower businesses, professionals, and students to achieve their goals.
+                    </p>
+                    <p class="text-lg text-muted mb-8 leading-relaxed">
+                        Our team of experienced developers, designers, and strategists work collaboratively to deliver solutions that are not just functional, but transformative. We believe in the power of technology to solve real-world problems and create meaningful impact.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-6 mb-8">
+                        <div class="text-center p-4 bg-blue-50 rounded-xl">
+                            <div class="text-3xl font-bold text-primary mb-2">100+</div>
+                            <div class="text-sm text-muted">Projects Completed</div>
+                        </div>
+                        <div class="text-center p-4 bg-green-50 rounded-xl">
+                            <div class="text-3xl font-bold text-green-600 mb-2">50+</div>
+                            <div class="text-sm text-muted">Happy Clients</div>
+                        </div>
+                        <div class="text-center p-4 bg-purple-50 rounded-xl">
+                            <div class="text-3xl font-bold text-purple-600 mb-2">25+</div>
+                            <div class="text-sm text-muted">Team Members</div>
+                        </div>
+                        <div class="text-center p-4 bg-orange-50 rounded-xl">
+                            <div class="text-3xl font-bold text-orange-600 mb-2">5+</div>
+                            <div class="text-sm text-muted">Years Experience</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <!-- Professional business meeting with diverse team members -->
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" alt="Professional business meeting" class="rounded-2xl shadow-2xl w-full h-auto mb-8">
+                    
+                    <div class="bg-gradient-to-r from-primary to-secondary p-6 rounded-2xl text-white">
+                        <h3 class="text-xl font-bold mb-3">Our Mission</h3>
+                        <p class="text-blue-100">To empower businesses and individuals with innovative technology solutions that drive growth, efficiency, and success in the digital age.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Section -->
+            <div class="mt-20">
+                <h3 class="text-3xl font-bold text-gray-900 text-center mb-12">Meet Our Team</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="text-center">
+                        <!-- Professional headshot of CEO/founder -->
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300" alt="CEO and Founder" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover">
+                        <h4 class="text-lg font-bold text-gray-900 mb-1">John Smith</h4>
+                        <p class="text-muted text-sm mb-2">CEO & Founder</p>
+                        <p class="text-xs text-muted">Leading innovation and strategic vision</p>
+                    </div>
+                    <div class="text-center">
+                        <!-- Professional headshot of CTO -->
+                        <img src="https://pixabay.com/get/g7ff07eabf0a8e9dc2fe93f76a6852e25f649bfbf3e3c7e32157b5136683e14c11fac9ecdb60aeb723ba90acf91597b8cb0c124cd22977e676a98aa26eef441b7_1280.jpg" alt="Chief Technology Officer" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover">
+                        <h4 class="text-lg font-bold text-gray-900 mb-1">Sarah Johnson</h4>
+                        <p class="text-muted text-sm mb-2">CTO</p>
+                        <p class="text-xs text-muted">Architecting scalable technology solutions</p>
+                    </div>
+                    <div class="text-center">
+                        <!-- Professional headshot of lead developer -->
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300" alt="Lead Developer" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover">
+                        <h4 class="text-lg font-bold text-gray-900 mb-1">Michael Chen</h4>
+                        <p class="text-muted text-sm mb-2">Lead Developer</p>
+                        <p class="text-xs text-muted">Building robust and efficient applications</p>
+                    </div>
+                    <div class="text-center">
+                        <!-- Professional headshot of design director -->
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300" alt="Design Director" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover">
+                        <h4 class="text-lg font-bold text-gray-900 mb-1">Emily Davis</h4>
+                        <p class="text-muted text-sm mb-2">Design Director</p>
+                        <p class="text-xs text-muted">Creating beautiful user experiences</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: About Section -->
+
+    <!-- @COMPONENT: Careers Section -->
+    <section id="careers" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Join Our Team</h2>
+                <p class="text-xl text-muted max-w-3xl mx-auto">We're always looking for talented individuals who share our passion for innovation and excellence. Explore career opportunities and internship programs.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12 mb-16">
+                <!-- Internship Program -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-graduation-cap text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900">Internship Program</h3>
+                    </div>
+                    <p class="text-muted mb-6">Kickstart your career with our comprehensive internship program designed for students and recent graduates.</p>
+                    
+                    <div class="space-y-4 mb-6">
+                        <div class="flex items-start">
+                            <i class="fas fa-check text-green-600 mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">3-6 Month Programs</h4>
+                                <p class="text-sm text-muted">Flexible duration based on your availability</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-check text-green-600 mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Mentorship & Training</h4>
+                                <p class="text-sm text-muted">Work closely with experienced professionals</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-check text-green-600 mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Real Project Experience</h4>
+                                <p class="text-sm text-muted">Contribute to actual client projects</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-check text-green-600 mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Certificate & Recommendations</h4>
+                                <p class="text-sm text-muted">Recognition for your contributions</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-200 inline-block">Apply for Internship</a>
+                </div>
+
+                <!-- Freelancer Network -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-handshake text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900">Freelancer Network</h3>
+                    </div>
+                    <p class="text-muted mb-6">Join our network of skilled freelancers and work on exciting projects with leading companies.</p>
+                    
+                    <div class="space-y-4 mb-6">
+                        <div class="flex items-start">
+                            <i class="fas fa-check text-purple-600 mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Flexible Work Schedule</h4>
+                                <p class="text-sm text-muted">Work on your own terms and schedule</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-check text-purple-600 mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Premium Projects</h4>
+                                <p class="text-sm text-muted">Access to high-quality, well-paying projects</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-check text-purple-600 mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Ongoing Support</h4>
+                                <p class="text-sm text-muted">Technical and business support throughout projects</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-check text-purple-600 mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Skill Development</h4>
+                                <p class="text-sm text-muted">Access to training and certification programs</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-purple-700 transition-colors duration-200 inline-block">Join Network</a>
+                </div>
+            </div>
+
+            <!-- Current Openings -->
+            <div class="bg-white p-8 rounded-2xl shadow-lg">
+                <h3 class="text-2xl font-bold text-gray-900 mb-6">Current Openings</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="border border-gray-200 p-6 rounded-lg hover:border-primary transition-colors duration-200">
+                        <h4 class="text-lg font-bold text-gray-900 mb-2">Senior React Developer</h4>
+                        <p class="text-muted text-sm mb-3">Full-time • Remote</p>
+                        <p class="text-sm text-muted mb-4">5+ years experience in React, TypeScript, and modern web technologies.</p>
+                        <a href="#contact" class="text-primary font-semibold text-sm hover:text-secondary transition-colors duration-200">Apply Now <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                    
+                    <div class="border border-gray-200 p-6 rounded-lg hover:border-primary transition-colors duration-200">
+                        <h4 class="text-lg font-bold text-gray-900 mb-2">UX/UI Designer</h4>
+                        <p class="text-muted text-sm mb-3">Full-time • Hybrid</p>
+                        <p class="text-sm text-muted mb-4">Creative designer with expertise in user research and modern design tools.</p>
+                        <a href="#contact" class="text-primary font-semibold text-sm hover:text-secondary transition-colors duration-200">Apply Now <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                    
+                    <div class="border border-gray-200 p-6 rounded-lg hover:border-primary transition-colors duration-200">
+                        <h4 class="text-lg font-bold text-gray-900 mb-2">Backend Developer</h4>
+                        <p class="text-muted text-sm mb-3">Full-time • Remote</p>
+                        <p class="text-sm text-muted mb-4">Experience with Node.js, Python, and cloud technologies.</p>
+                        <a href="#contact" class="text-primary font-semibold text-sm hover:text-secondary transition-colors duration-200">Apply Now <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Careers Section -->
+
+    <!-- @COMPONENT: Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Get In Touch</h2>
+                <p class="text-xl text-muted max-w-3xl mx-auto">Ready to start your project? We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div class="bg-gray-50 p-8 rounded-2xl">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Send us a message</h3>
+                    <form class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="firstName" class="block text-sm font-medium text-gray-700 mb-2">First Name</label>
+                                <input type="text" id="firstName" name="firstName" data-mock="true" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200" placeholder="John">
+                            </div>
+                            <div>
+                                <label for="lastName" class="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
+                                <input type="text" id="lastName" name="lastName" data-mock="true" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200" placeholder="Doe">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                            <input type="email" id="email" name="email" data-mock="true" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200" placeholder="john@example.com">
+                        </div>
+                        
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone</label>
+                            <input type="tel" id="phone" name="phone" data-mock="true" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200" placeholder="+1 (555) 123-4567">
+                        </div>
+                        
+                        <div>
+                            <label for="service" class="block text-sm font-medium text-gray-700 mb-2">Service Interested In</label>
+                            <select id="service" name="service" data-mock="true" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200">
+                                <option value="">Select a service</option>
+                                <option value="web-development">Web Development</option>
+                                <option value="portfolio-website">Portfolio Website</option>
+                                <option value="academic-project">Academic Project</option>
+                                <option value="resume-builder">ATS Resume Maker</option>
+                                <option value="internship">Internship Program</option>
+                                <option value="freelancer">Freelancer Network</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                            <textarea id="message" name="message" rows="4" data-mock="true" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200" placeholder="Tell us about your project..."></textarea>
+                        </div>
+                        
+                        <button type="submit" data-event="click:handleFormSubmit" data-implementation="Should validate form and send email" class="w-full bg-primary text-white px-6 py-4 rounded-lg font-semibold hover:bg-secondary transition-colors duration-200">
+                            Send Message <i class="fas fa-paper-plane ml-2"></i>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-6">Contact Information</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fas fa-map-marker-alt text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold text-gray-900 mb-1">Address</h4>
+                                    <p class="text-muted">123 Tech Street, Innovation District<br>San Francisco, CA 94105</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fas fa-phone text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold text-gray-900 mb-1">Phone</h4>
+                                    <p class="text-muted">+1 (555) 123-4567<br>Mon-Fri 9AM-6PM PST</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fas fa-envelope text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold text-gray-900 mb-1">Email</h4>
+                                    <p class="text-muted">hello@ftsolutions.com<br>support@ftsolutions.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Modern workspace environment with computers and technology -->
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=500" alt="Modern workspace environment" class="rounded-2xl shadow-lg w-full h-auto">
+                    
+                    <div class="bg-gradient-to-r from-primary to-secondary p-6 rounded-2xl text-white">
+                        <h4 class="text-xl font-bold mb-3">Ready to Get Started?</h4>
+                        <p class="text-blue-100 mb-4">Let's discuss your project and how we can help bring your vision to life.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-white hover:text-accent transition-colors duration-200" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin text-2xl"></i>
+                            </a>
+                            <a href="#" class="text-white hover:text-accent transition-colors duration-200" aria-label="Twitter">
+                                <i class="fab fa-twitter text-2xl"></i>
+                            </a>
+                            <a href="#" class="text-white hover:text-accent transition-colors duration-200" aria-label="GitHub">
+                                <i class="fab fa-github text-2xl"></i>
+                            </a>
+                            <a href="#" class="text-white hover:text-accent transition-colors duration-200" aria-label="Instagram">
+                                <i class="fab fa-instagram text-2xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Contact Section -->
+
+    <!-- @COMPONENT: Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <div class="text-2xl font-bold mb-4">
+                        <i class="fas fa-code mr-2"></i>FT Solutions
+                    </div>
+                    <p class="text-gray-300 mb-4">Innovative software solutions for modern business. Empowering growth through technology.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-accent transition-colors duration-200" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-accent transition-colors duration-200" aria-label="Twitter">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-accent transition-colors duration-200" aria-label="GitHub">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-accent transition-colors duration-200" aria-label="Instagram">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#services" class="hover:text-accent transition-colors duration-200">Web Development</a></li>
+                        <li><a href="#services" class="hover:text-accent transition-colors duration-200">Portfolio Websites</a></li>
+                        <li><a href="#services" class="hover:text-accent transition-colors duration-200">Academic Projects</a></li>
+                        <li><a href="#services" class="hover:text-accent transition-colors duration-200">ATS Resume Maker</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#about" class="hover:text-accent transition-colors duration-200">About Us</a></li>
+                        <li><a href="#portfolio" class="hover:text-accent transition-colors duration-200">Portfolio</a></li>
+                        <li><a href="#careers" class="hover:text-accent transition-colors duration-200">Careers</a></li>
+                        <li><a href="#contact" class="hover:text-accent transition-colors duration-200">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-2"></i>
+                            hello@ftsolutions.com
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-2"></i>
+                            +1 (555) 123-4567
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mr-2 mt-1"></i>
+                            123 Tech Street<br>San Francisco, CA 94105
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-300">
+                <p>&copy; 2024 FT Solutions. All rights reserved. | Privacy Policy | Terms of Service</p>
+            </div>
+        </div>
+    </footer>
+    <!-- @END_COMPONENT: Footer -->
+
+    <script>
+        (function() {
+            // Mobile menu toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+            
+            // Smooth scrolling for navigation links
+            const navLinks = document.querySelectorAll('a[href^="#"]');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const offsetTop = targetElement.offsetTop - 80;
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                        // Close mobile menu if open
+                        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                            mobileMenu.classList.add('hidden');
+                        }
+                    }
+                });
+            });
+            
+            // Scroll animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-fade-in');
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe elements for animation
+            const animateElements = document.querySelectorAll('.hover-lift, .grid > div, .space-y-6 > div');
+            animateElements.forEach(el => observer.observe(el));
+            
+            // Form submission handler placeholder
+            const contactForm = document.querySelector('form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // TODO: Implement form validation and submission logic
+                    console.log('Form submitted - implement backend integration');
+                    alert('Thank you for your message! We will get back to you soon.');
+                });
+            }
+            
+            // Add loading animation to buttons on click
+            const buttons = document.querySelectorAll('button, .bg-primary, .bg-green-600, .bg-purple-600');
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Add subtle loading effect
+                    this.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                });
+            });
+        })();
+    </script>
+</body>
+</html>
