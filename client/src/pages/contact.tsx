@@ -72,7 +72,7 @@ export default function Contact() {
     {
       icon: Mail,
       title: "Email",
-      value: "hello@ftsolutions.com",
+      value: "hello@ftsolutions.me",
       testId: "contact-email"
     },
     {
@@ -84,7 +84,7 @@ export default function Contact() {
     {
       icon: MapPin,
       title: "Office",
-      value: "123 Innovation Drive\nTech Hub, CA 94105",
+      value: "Chennai\nTamilnadu",
       testId: "contact-address"
     },
     {
@@ -203,10 +203,10 @@ export default function Contact() {
                               </SelectTrigger>
                             </FormControl>
                             <SelectContent>
-                              <SelectItem value="under-5k">Under $5,000</SelectItem>
-                              <SelectItem value="5k-10k">$5,000 - $10,000</SelectItem>
-                              <SelectItem value="10k-25k">$10,000 - $25,000</SelectItem>
-                              <SelectItem value="25k-plus">$25,000+</SelectItem>
+                              <SelectItem value="under-5k">Under ₹5,000</SelectItem>
+                              <SelectItem value="5k-10k">₹5,000 - ₹10,000</SelectItem>
+                              <SelectItem value="10k-25k">₹10,000 - ₹25,000</SelectItem>
+                              <SelectItem value="25k-plus">₹25,000+</SelectItem>
                             </SelectContent>
                           </Select>
                           <FormMessage />
