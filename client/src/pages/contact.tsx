@@ -78,7 +78,7 @@ export default function Contact() {
     {
       icon: Phone,
       title: "Phone",
-      value: "+1 (555) 123-4567",
+      value: "+91 96556 88245",
       testId: "contact-phone"
     },
     {
